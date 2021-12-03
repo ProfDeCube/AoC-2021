@@ -1,15 +1,15 @@
-import dayOneData from './dayTwoData';
+import dayTwoData from './data.js';
 
-const dataArray = dayOneData.split('\n');
+const dataArray = dayTwoData.split('\n');
 
-const challengeOne = () => {
+export const challengeOne = () => {
   let depth = 0;
   let distance = 0;
-  for (item of dataArray) {
-    [direction, count] = item.split(" ");
+  for (let item of dataArray) {
+    const [direction, count] = item.split(" ");
     switch (direction) {
       case 'forward':
-        distanch += parseInt(count, 10);
+        distance += parseInt(count, 10);
         break;
       case 'down':
         depth += parseInt(count, 10);
@@ -22,17 +22,15 @@ const challengeOne = () => {
   return distance*depth
 }
 
-challengeOne();
-
-const challengeTwo = () => {
+export const challengeTwo = () => {
   let depth = 0;
   let aim = 0;
   let distance = 0;
-  for (item of dataArray) {
-    [direction, count] = item.split(" ");
+  for (let item of dataArray) {
+    const [direction, count] = item.split(" ");
     switch (direction) {
       case 'forward':
-        distanch += parseInt(count, 10);
+        distance += parseInt(count, 10);
         depth += (aim*parseInt(count, 10));
         break;
       case 'down':
@@ -45,5 +43,3 @@ const challengeTwo = () => {
   }
   return distance*depth
 }
-
-challengeTwo();

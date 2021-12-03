@@ -1,11 +1,11 @@
-import dayOneData from './dayOneData';
+import dayOneData from './data.js';
 
-dataArray = dayOneData.split('\n')
+const inputArray = dayOneData.split('\n')
   .map((numberString) => parseInt(numberString, 10))
 
-const challengeOne = () => {
+export const challengeOne = () => {
   let lastNum,c;
-  for (i = 0; i < inputArray.length; i++) {
+  for (let i = 0; i < inputArray.length; i++) {
       if (!i) {
           c = 0;
           lastNum = inputArray[i]
@@ -21,11 +21,10 @@ const challengeOne = () => {
   return c;
 }
 
-challengeOne();
-
-const challengeTwo = () => {
-  let lastNum, c;
-  for (i = 0; i < inputArray.length - 2; i++) {
+export const challengeTwo = () => {
+  let lastNum;
+  let c = 0;
+  for (let i = 0; i < inputArray.length - 2; i++) {
     let threeSum = inputArray[i] + inputArray[i + 1] + inputArray[i + 2]
     if (!i) {
       lastNum = threeSum
@@ -40,5 +39,3 @@ const challengeTwo = () => {
   }
   return c;
 }
-
-challengeTwo();

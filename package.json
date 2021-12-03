@@ -1,0 +1,24 @@
+{
+  "name": "aoc-2021",
+  "version": "1.0.0",
+  "description": "Advent of Code",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfDeCube/AoC-2021.git"
+  },
+  "author": "James McIntosh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ProfDeCube/AoC-2021/issues"
+  },
+  "homepage": "https://github.com/ProfDeCube/AoC-2021#readme",
+  "devDependencies": {
+    "es-module-loader": "^2.3.0"
+  }
+}

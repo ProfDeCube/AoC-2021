@@ -1,4 +1,4 @@
-export default dayTwoData = `forward 1
+const dayTwoData = `forward 1
 forward 5
 forward 8
 down 9
@@ -998,3 +998,5 @@ down 1
 up 1
 down 7
 forward 3`;
+
+export default dayTwoData;

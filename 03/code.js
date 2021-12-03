@@ -1,8 +1,8 @@
-import dayOneData from './dayOneData';
+import dayThreeData from './data.js';
 
 const dataArray = dayThreeData.split('\n');
 
-const challengeOne = () => {
+export const challengeOne = () => {
     const breakdown = {}
     for (let i = 0; i < dataArray[0].length; i++) {
         breakdown[i] = {'zero': 0, 'one': 0}
@@ -30,8 +30,6 @@ const challengeOne = () => {
     return parseInt(gammaRate, 2) * parseInt(epsilonRate, 2);
 }
 
-challengeOne();
-
 const digitIterate = (array, digit, keepMostCommon) => {
     let occurances = {one: 0, zero: 0};
     for (let binaryNumber of array) {
@@ -49,7 +47,7 @@ const digitIterate = (array, digit, keepMostCommon) => {
     return array.filter(item => item[digit] === '0')
 }
 
-const challengeTwo = () => {
+export const challengeTwo = () => {
     let oxygenArray = [...dataArray];
     let co2Array = [...dataArray];
     for (let i = 0; i < dataArray[0].length; i++) {
@@ -65,5 +63,3 @@ const challengeTwo = () => {
     }
 
 }
-
-challengeTwo();

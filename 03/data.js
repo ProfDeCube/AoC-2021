@@ -1,4 +1,4 @@
-export default dayThreeData = `000110000001
+const dayThreeData = `000110000001
 011011001101
 001101100111
 001101011001
@@ -998,3 +998,5 @@ export default dayThreeData = `000110000001
 101010000111
 101110011111
 101000010101`;
+
+export default dayThreeData;

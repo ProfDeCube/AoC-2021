@@ -1,5 +1,4 @@
-export default dayOneData =
-`188
+const dayOneData = `188
 192
 196
 198
@@ -1999,3 +1998,5 @@ export default dayOneData =
 8704
 8711
 8710`;
+
+export default dayOneData;
