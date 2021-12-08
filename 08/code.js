@@ -1,19 +1,18 @@
 import dayEightData from './data.js';
 
+const alphaSort = (string) => {
+  return string.split('').sort((a, b) => a > b ? 1 : -1).join('');
+}
+
 let dataArray = dayEightData.split('\n');
 dataArray = dataArray.map(item => {
-  let [transforms, outputs] = item.split(' | ');
-  transforms = transforms.split(' ').map(transform => {
-    return transform.split('').sort((a, b) => a > b ? 1 : -1).join('');
-  })
-  outputs = outputs.split(' ').map(output => {
-    return output.split('').sort((a, b) => a > b ? 1 : -1).join('');
-  })
-  return { transforms, outputs }
+  let [signals, outputs] = item.split(' | ');
+  signals = signals.split(' ').map(alphaSort)
+  outputs = outputs.split(' ').map(alphaSort)
+  return { signals, outputs }
 });
 
 export const challengeOne = () => {
-  console.log(dataArray)
   let total = 0;
   for (const item of dataArray) {
     for (const output of item.outputs) {
@@ -32,7 +31,7 @@ const containsAllChars = (input, chars) => {
   return containsAll;
 }
 
-const uncontainerChars = (chars, input, log = false) => {
+const uncontainerChars = (chars, input) => {
   const inputArray = input.split('');
   const charsArray = chars.split('');
 
@@ -42,7 +41,6 @@ const uncontainerChars = (chars, input, log = false) => {
       unconatined.push(inputChar);
     }
   }
-  if (log) console.log(input, chars, unconatined);
   return unconatined;
 }
 
@@ -50,7 +48,7 @@ export const challengeTwo = () => {
   let total = 0;
   for (const item of dataArray) {
     const numbers = {}
-    for (const value of [...item.outputs, ...item.transforms]) {
+    for (const value of [...item.signals]) {
       switch (value.length) {
         case 2:
           numbers[1] = value;
@@ -66,10 +64,9 @@ export const challengeTwo = () => {
           break;
       }
     }
-    for (const value of [...item.outputs, ...item.transforms]) {
+    for (const value of [...item.signals]) {
       if (value.length === 6) {
         // 0, 6, 9
-
         if (!containsAllChars(value, numbers[1])) {
           numbers[6] = value
         } else {
@@ -84,15 +81,13 @@ export const challengeTwo = () => {
       }
 
     }
-    for (const value of [...item.outputs, ...item.transforms]) {
+    for (const value of [...item.signals]) {
       if (value.length === 5) {
         // 2, 3, 5
-
-        // 3
         if (containsAllChars(value, numbers[1])) {
           numbers[3] = value;
         } else {
-          const uncontained = uncontainerChars(numbers[9], value, true);
+          const uncontained = uncontainerChars(numbers[9], value);
           if (uncontained.length === 0) {
             numbers[5] = value;
           } else {
@@ -106,7 +101,6 @@ export const challengeTwo = () => {
     for(const number in numbers) {
       numberMap[numbers[number]] = number;
     }
-    console.log(numberMap);
     let outputString = '';
     for (const output of item.outputs) {
       outputString += numberMap[output];
