@@ -60,28 +60,17 @@ export const challengeTwo = () => {
       const minY = Math.min(y1, y2);
       const maxY = Math.max(y1, y2);
       const diff = maxX - minX;
-      if (x1 > x2 && y1 > y2) {
-        for (let i = 0; i <= x1 - x2; i++) {
-          const hitMapKey = `${x1 - i},${y1 - i}`
+      if ((x1 > x2 && y1 > y2) || (x1 < x2 && y1 < y2)) {
+        // Positive Correlation
+        for (let i = 0; i <= diff; i++) {
+          const hitMapKey = `${minX + i},${minY + i}`
           const newValue = (hitMap[hitMapKey]) ? hitMap[hitMapKey] + 1 : 1;
           hitMap[hitMapKey] = newValue;
         }
-      } else if (x1 < x2 && y1 < y2) {
-        for (let i = 0; i <= x2 - x1; i++) {
-          const hitMapKey = `${x1 + i},${y1 + i}`
-          const newValue = (hitMap[hitMapKey]) ? hitMap[hitMapKey] + 1 : 1;
-          hitMap[hitMapKey] = newValue;
-        }
-      } else if (x1 > x2 && y1 < y2) {
-        for (let i = 0; i <= y2 - y1; i++) {
-          const hitMapKey = `${x1 - i},${y1 + i}`;
-          const newValue = (hitMap[hitMapKey]) ? hitMap[hitMapKey] + 1 : 1;
-          hitMap[hitMapKey] = newValue;
-          console.log(line, hitMapKey)
-        }
-      } else if (x1 < x2 && y1 > y2) {
-        for (let i = 0; i <= y1 - y2; i++) {
-          const hitMapKey = `${x1 + i},${y1 - i}`;
+      } else {
+        // Negative Correlation
+        for (let i = 0; i <= diff; i++) {
+          const hitMapKey = `${minX + i},${maxY - i}`;
           const newValue = (hitMap[hitMapKey]) ? hitMap[hitMapKey] + 1 : 1;
           hitMap[hitMapKey] = newValue;
           console.log(line, hitMapKey)
@@ -90,27 +79,5 @@ export const challengeTwo = () => {
     }
   }
   const busyHits = Object.values(hitMap).filter(item => item >= 2);
-  // console.log(hitMap);
-  // const map = [
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  //   ['.','.','.','.','.','.','.','.','.','.',],
-  // ]
-  // for(let key of Object.keys(hitMap)) {
-  //   let [x, y] = key.split(',');
-  //   x = parseInt(x, 10);
-  //   y = parseInt(y, 10);
-  //   map[y][x] = hitMap[key];
-  // }
-  // for(let row of map) {
-  //   console.log(row.join(""));
-  // }
   return busyHits.length;
 }
