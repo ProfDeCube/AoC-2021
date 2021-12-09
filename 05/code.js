@@ -73,7 +73,6 @@ export const challengeTwo = () => {
           const hitMapKey = `${minX + i},${maxY - i}`;
           const newValue = (hitMap[hitMapKey]) ? hitMap[hitMapKey] + 1 : 1;
           hitMap[hitMapKey] = newValue;
-          console.log(line, hitMapKey)
         }
       }
     }
