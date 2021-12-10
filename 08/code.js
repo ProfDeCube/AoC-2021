@@ -117,3 +117,6 @@ export const challengeTwo = () => {
   }
   return total;
 }
+
+global.eightOne = challengeOne; global.eightTwo = challengeTwo;
+export default {challengeOne, challengeTwo}

@@ -1,33 +1,32 @@
-import { challengeOne as oneOne, challengeTwo as oneTwo } from './01/code.js';
-global.oneOne = oneOne; global.oneTwo = oneTwo;
-import { challengeOne as twoOne, challengeTwo as twoTwo } from './02/code.js';
-global.twoOne = twoOne; global.twoTwo = twoTwo;
-import { challengeOne as threeOne, challengeTwo as threeTwo } from './03/code.js';
-global.threeOne = threeOne; global.threeTwo = threeTwo;
-import { challengeOne as fourOne, challengeTwo as fourTwo } from './04/code.js';
-global.fourOne = fourOne; global.fourTwo = fourTwo;
-import { challengeOne as fiveOne, challengeTwo as fiveTwo } from './05/code.js';
-global.fiveOne = fiveOne; global.fiveTwo = fiveTwo;
-import { challengeOne as sixOne, challengeTwo as sixTwo } from './06/code.js';
-global.sixOne = sixOne; global.sixTwo = sixTwo;
-import { challengeOne as sevenOne, challengeTwo as sevenTwo } from './07/code.js';
-global.sevenOne = sevenOne; global.sevenTwo = sevenTwo;
-import { challengeOne as eightOne, challengeTwo as eightTwo } from './08/code.js';
-global.eightOne = eightOne; global.eightTwo = eightTwo;
-import { challengeOne as nineOne, challengeTwo as nineTwo } from './09/code.js';
-global.nineOne = nineOne; global.nineTwo = nineTwo;
+import dayOne from './01/code.js';
+import dayTwo from './02/code.js';
+import dayThree from './03/code.js';
+import dayFour from './04/code.js';
+import dayFive from './05/code.js';
+import daySix from './06/code.js';
+import daySeven from './07/code.js';
+import dayEight from './08/code.js';
+import dayNine from './09/code.js';
+import dayTen from './10/code.js';
 
-const [node, index, day, challenge] = process.argv;
+let testMode = false;
+const args = [...process.argv];
+if(args.indexOf("test") !== -1 || args.indexOf("-t") !== -1) {
+  const index = args.indexOf("test") || args.indexOf("-t");
+  args.splice(index, 1);
+  testMode = true;
+}
+const [node, index, day, challenge] = args
 
 const intToString = {
   1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six',
-  7: 'Seven', 8: 'Eight', 9: 'Nine'
+  7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten'
 };
 
 const runChallenge = (dayNumber, challengeNumber) => {
   const challengeName = intToString[dayNumber].toLowerCase() + intToString[challengeNumber]
   const startTime = new Date();
-  const answer = global[challengeName]();
+  const answer = global[challengeName](testMode);
   const endTime = new Date();
   let timeTaken = endTime - startTime;
   if (timeTaken > 1000) {
@@ -35,7 +34,8 @@ const runChallenge = (dayNumber, challengeNumber) => {
   } else {
     timeTaken = `${timeTaken}ms`;
   }
-  console.log(`The answer to day ${dayNumber} challenge ${challengeNumber} is: ${answer} (took ${timeTaken})`);
+  const testDataString = (testMode) ? 'test data ' : ''
+  console.log(`The ${testDataString}answer to day ${dayNumber} challenge ${challengeNumber} is: ${answer} (took ${timeTaken})`);
 }
 
 if (day) {
@@ -49,5 +49,6 @@ if (day) {
   for (const dayNumber of Object.keys(intToString)) {
     runChallenge(parseInt(dayNumber, 10), 1);
     runChallenge(parseInt(dayNumber, 10), 2);
+    console.log("")
   }
 }

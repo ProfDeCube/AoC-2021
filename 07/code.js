@@ -43,3 +43,6 @@ export const challengeTwo = () => {
   }
   return bestTotal;
 }
+
+global.sevenOne = challengeOne; global.sevenTwo = challengeTwo;
+export default {challengeOne, challengeTwo}

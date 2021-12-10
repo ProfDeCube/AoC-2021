@@ -80,3 +80,6 @@ export const challengeTwo = () => {
   const busyHits = Object.values(hitMap).filter(item => item >= 2);
   return busyHits.length;
 }
+
+global.fiveOne = challengeOne; global.fiveTwo = challengeTwo;
+export default {challengeOne, challengeTwo}

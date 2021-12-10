@@ -50,3 +50,6 @@ export const challengeTwo = () => {
   const days = 256;
   return doIterate(days);
 }
+
+global.sixOne = challengeOne; global.sixTwo = challengeTwo;
+export default {challengeOne, challengeTwo}

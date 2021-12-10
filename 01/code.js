@@ -39,3 +39,6 @@ export const challengeTwo = () => {
   }
   return c;
 }
+
+global.oneOne = challengeOne; global.oneTwo = challengeTwo;
+export default {challengeOne, challengeTwo}

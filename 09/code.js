@@ -49,7 +49,6 @@ export const challengeTwo = () => {
   for (let y = 0; y < dataArray.length; y++) {
     for (let x = 0; x < dataArray[y].length; x++) {
       const coords = `${y},${x}`;
-      let currentNum = dataArray[y][x];
       if (visitedSpaces.includes(coords) || dataArray[y][x] === 9) continue;
       const plateau = [];
       if (!plateau.includes(coords)) addNeighbors(plateau, y, x);
@@ -58,3 +57,6 @@ export const challengeTwo = () => {
   }
   return bigThree[0] * bigThree[1] * bigThree[2];
 }
+
+global.nineOne = challengeOne; global.nineTwo = challengeTwo;
+export default {challengeOne, challengeTwo}

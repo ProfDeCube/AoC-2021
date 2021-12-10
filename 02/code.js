@@ -43,3 +43,6 @@ export const challengeTwo = () => {
   }
   return distance*depth
 }
+
+global.twoOne = challengeOne; global.twoTwo = challengeTwo;
+export default {challengeOne, challengeTwo}

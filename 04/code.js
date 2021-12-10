@@ -72,3 +72,7 @@ export const challengeTwo = () => {
   const winningNumber = callsToTest.pop();
   return unmarkedSum * winningNumber;
 }
+
+
+global.fourOne = challengeOne; global.fourTwo = challengeTwo;
+export default {challengeOne, challengeTwo}
