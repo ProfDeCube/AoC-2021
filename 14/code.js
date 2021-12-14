@@ -45,14 +45,12 @@ const doIterations = (interations) => {
   for (const pair in data.inputPairs) {
     const count = data.inputPairs[pair];
     addToObject(allOccurances, pair[0], count);
-    addToObject(allOccurances, pair[1], count);
   }
   const startLetter = data.input[0];
   const endLetter = data.input[data.input.length - 1];
-  addToObject(allOccurances, startLetter, 1);
   addToObject(allOccurances, endLetter, 1);
   const values = Object.values(allOccurances).sort((a, b) => b - a);
-  return (values[0] - values[values.length - 1]) / 2
+  return (values[0] - values[values.length - 1])
 }
 
 const challengeOne = (useTestData) => {
