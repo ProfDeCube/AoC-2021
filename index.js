@@ -10,6 +10,8 @@ import dayNine from './09/code.js';
 import dayTen from './10/code.js';
 import dayEleven from './11/code.js';
 import dayTwelve from './12/code.js';
+import dayThirteen from './13/code.js';
+import dayFourteen from './14/code.js';
 
 let testMode = false;
 const args = [...process.argv];
@@ -22,7 +24,8 @@ const [node, index, day, challenge] = args
 
 const intToString = {
   1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six',
-  7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', 11: 'Eleven', 12: 'Twelve'
+  7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', 11: 'Eleven', 12: 'Twelve',
+  13: 'Thirteen', 14: 'Fourteen'
 };
 
 const runChallenge = (dayNumber, challengeNumber) => {
@@ -37,7 +40,7 @@ const runChallenge = (dayNumber, challengeNumber) => {
     timeTaken = `${timeTaken}ms`;
   }
   const testDataString = (testMode) ? 'test data ' : ''
-  console.log(`The ${testDataString}answer to day ${dayNumber} challenge ${challengeNumber} is: ${answer} (took ${timeTaken})`);
+  console.log(`The ${testDataString}answer to day ${dayNumber} challenge ${challengeNumber} is: ${answer}`, `(took ${timeTaken})`);
 }
 
 if (day) {
