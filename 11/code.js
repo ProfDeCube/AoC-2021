@@ -100,12 +100,8 @@ const challengeOne = (useTestData) => {
 }
 
 const checkSync = () => {
-  let syncChecker = [...data].map(i=> {
-    return [...new Set(i)].length === 1 ? [...new Set(i)][0] : [...new Set(i)]
-  })
-  
-  let syncChecker2 = [...new Set(syncChecker)];
-  return syncChecker2.length === 1;
+  const flatData = [...data].flat();
+  return flatData.every((item) => item === flatData[0]);
 }
 
 const challengeTwo = (useTestData) => {
