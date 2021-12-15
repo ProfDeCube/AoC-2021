@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ProfDeCube/AoC-2021/issues"
   },
-  "homepage": "https://github.com/ProfDeCube/AoC-2021#readme"
+  "homepage": "https://github.com/ProfDeCube/AoC-2021#readme",
+  "dependencies": {
+    "modern-dijkstra": "^1.1.0"
+  }
 }

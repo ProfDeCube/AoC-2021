@@ -12,6 +12,7 @@ import dayEleven from './11/code.js';
 import dayTwelve from './12/code.js';
 import dayThirteen from './13/code.js';
 import dayFourteen from './14/code.js';
+import dayFifteen from './15/code.js';
 
 let testMode = false;
 const args = [...process.argv];
@@ -25,7 +26,7 @@ const [node, index, day, challenge] = args
 const intToString = {
   1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six',
   7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', 11: 'Eleven', 12: 'Twelve',
-  13: 'Thirteen', 14: 'Fourteen'
+  13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen'
 };
 
 const runChallenge = (dayNumber, challengeNumber) => {
