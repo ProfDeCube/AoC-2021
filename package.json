@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/ProfDeCube/AoC-2021#readme",
   "dependencies": {
-    "modern-dijkstra": "^1.1.0"
+    "modern-dijkstra": "^1.1.2"
   }
 }
