@@ -1,6 +1,5 @@
 import daySixteenData from './data.js';
 import daySixteenTestData from './testData.js';
-import { findPathWithCost } from 'modern-dijkstra';
 
 const formatData = (dataToFormat) => dataToFormat.split('\n');
 
