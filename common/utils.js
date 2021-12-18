@@ -4,6 +4,9 @@ export const addToObject = (object, key, count) => {
   } else object[key] = count;
 };
 
+export const sumOfArithmeticProgression = (n) => {
+  return n * (n + 1) / 2;
+}
 
 const hexCharsToBin = (hexString) => {
   let binString = '';
